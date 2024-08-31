@@ -134,6 +134,7 @@ exports.editPost = async (req, res) => {
     jwt.verify(token, publicKey, { algorithms: "RS256" }, async (err, info) => {
       if (err) {
         console.log("error in edit post : ", err);
+        res.status(400).json({error : "error in editing post : ",err})
         throw err;
       }
 
