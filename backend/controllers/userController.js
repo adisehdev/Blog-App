@@ -9,7 +9,7 @@ const privateKey = process.env.PRIVATE_KEY
 
 const publicKey = process.env.PUBLIC_KEY
 
-exports.registerUSer = async (req, res) => {
+exports.registerUSer = async (req, res) => { //api to register new user
   try {
     let { username, password } = req.body;
     password = bcrypt.hashSync(password, 10);
@@ -21,7 +21,7 @@ exports.registerUSer = async (req, res) => {
   }
 };
 
-exports.loginUser = async (req, res) => {
+exports.loginUser = async (req, res) => { //api to login user
   try {
     let { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -46,7 +46,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-exports.getProfile = async (req, res) => {
+exports.getProfile = async (req, res) => { //api to get profile of user
   //cookie se profile nikalega
   try {
     const { token } = req.cookies; //token created
@@ -65,7 +65,7 @@ exports.getProfile = async (req, res) => {
   }
 };
 
-exports.logoutUser = async (req, res) => {
+exports.logoutUser = async (req, res) => { //api to logout user
   try {
     res.cookie("token", "").json({ cookies: res.cookies }).status(200); //resetting cookie
   } catch (error) {
