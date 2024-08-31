@@ -23,7 +23,7 @@ async function main() {
 const server = express()
 
 
-server.use(cors({credentials:true,origin:`http://localhost:${process.env.FRONTEND_PORT}`}))
+server.use(cors({credentials:true,origin:`${process.env.FRONTEND_URL}`}))
 server.use(express.json())
 server.use(cookieParser())
 server.use('/uploads',express.static(__dirname + "/uploads"))
