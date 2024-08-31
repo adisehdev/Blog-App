@@ -13,7 +13,7 @@ const SinglePost = () => {
   
 
   const getSinglePost = async () => {
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/post/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`, {
       method: "GET",
     });
 
@@ -38,7 +38,7 @@ const SinglePost = () => {
 
   const handleDelete = async ()=>{
     
-    const response  = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/post/${id}`,{
+    const response  = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`,{
       method : 'DELETE',
       credentials : 'include'
     })

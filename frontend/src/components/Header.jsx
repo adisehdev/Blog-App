@@ -8,7 +8,7 @@ const Header = ()=>{
   
   const {setUserinfo,userInfo} = useContext(userContext)
   const getProfileInfo = async()=>{
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/auth/getProfile`,{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/getProfile`,{
       method : 'GET',
       credentials : 'include',
     })
@@ -28,7 +28,7 @@ const Header = ()=>{
   }
 
   const handleLogout = async()=>{
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/auth/logout`,{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/logout`,{
       method : 'POST',
       credentials : 'include'
     })

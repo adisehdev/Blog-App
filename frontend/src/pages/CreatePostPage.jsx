@@ -32,7 +32,7 @@ const CreatePost = () => {
     
     console.log(data)
     
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/post`,{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post`,{
         method : 'POST',
         credentials : 'include',
         body : data

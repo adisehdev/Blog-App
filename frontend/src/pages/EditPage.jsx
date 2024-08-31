@@ -23,7 +23,7 @@ const EditPost = () => {
 
   const getSinglePost = async () => {
     
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/post/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`, {
       method: "GET",
     });
 
@@ -84,7 +84,7 @@ const EditPost = () => {
 
     console.log(data);
     
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api/post/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`, {
       method: "PATCH",
       credentials: "include",
       body: data,
