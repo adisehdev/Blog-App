@@ -1,0 +1,609 @@
+*{
+  box-sizing: border-box;
+}
+
+
+
+/* General Header Styling->Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;  /* Reduced padding to decrease height */
+  background-color: #384551;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 5px; /* Added bottom margin */
+}
+
+.logo {
+  font-size: 1.7em;  /* Slightly reduced font size */
+  font-weight: 700;
+  color: #cdd8e3;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #cdd8e3;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 8px 15px;  /* Reduced padding to decrease height */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background-color: #485a6c;
+  color: #131518;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;  /* Adjust padding for smaller screens */
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+
+.outermost-container {
+  background-color: #b2b2ba; /* Light background color complementing the navbar */
+  padding: 20px; /* Space around the content inside the container */
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+.outermost-container .post {
+  margin: 20px auto; /* Space between post cards */
+}
+
+
+
+/* General Styling for the Post Container */
+.post {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9ecef; /* Slightly darker background */
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(3, 60, 81);
+}
+
+/* Image Styling */
+.post .image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.post .image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+
+/* Post Info Styling */
+.post-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-info a{
+  text-decoration: none;
+}
+
+.post-info h2 {
+  font-size: 1.5em;
+  color: #1e2022; /* Darker text color */
+  margin: 0;
+  transition: color 0.3s ease;
+  text-decoration: none; /* Remove underline */
+}
+
+.post-info h2:hover {
+  color: #0056b3; /* Darker shade of blue for hover effect */
+}
+
+.post-data {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #6c757d; /* Lighter text color for metadata */
+  margin-bottom: 10px;
+}
+
+.post-data .author {
+  color: #007bff; /* Complementary color for author */
+  font-weight: 500;
+}
+
+.post-data time {
+  font-weight: 400;
+}
+
+/* Summary Styling */
+.summary {
+  font-size: 1em;
+  color: #333; /* Darker text color for readability */
+  line-height: 1.6em;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .post {
+    padding: 10px;
+  }
+
+  .post-info h2 {
+    font-size: 1.3em;
+  }
+
+  .summary {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 8px;
+  }
+
+  .post-info h2 {
+    font-size: 1.2em;
+  }
+
+  .summary {
+    font-size: 0.85em;
+  }
+}
+
+
+
+
+/* Styling for the Login Form */
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.login h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login label {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.login input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login button:hover {
+  background-color: #0056b3;
+}
+
+.login button:active {
+  background-color: #004494;
+}
+
+
+/* Styling for the Register Form */
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.register h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register label {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.register input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.register input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.register button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register button:hover {
+  background-color: #0056b3;
+}
+
+.register button:active {
+  background-color: #004494;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* General Styling -> post card */
+.single-post {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.single-post-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.single-post time,
+.single-post .author {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+}
+
+.single-post .author {
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Image Styling */
+.single-post-img {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.single-post-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Edit and Delete Buttons */
+.edit-post,
+.delete-post {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  background-color: #3498db; /* Default to edit button color */
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+}
+
+/* Centering Buttons Horizontally */
+.edit-post,
+.delete-post {
+  text-align: center;
+  width: 100%;
+}
+
+.edit-btn,
+.delete-btn {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+/* Remove underline from links */
+.edit-btn:hover,
+.delete-btn:hover {
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .single-post {
+    padding: 15px;
+  }
+
+  .single-post-title {
+    font-size: 1.5em;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-post {
+    padding: 10px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+/* Styling for the Edit Post Form */
+.edit-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.edit-post-form h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input Fields Styling */
+.edit-post-form input[type="title"],
+.edit-post-form input[type="summary"],
+.edit-post-form input[type="File"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.edit-post-form input[type="title"]:focus,
+.edit-post-form input[type="summary"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.edit-post-form input[type="File"] {
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+/* Editor Component Styling */
+.edit-post-form .editor {
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Button Styling */
+.edit-post-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-post-form button:hover {
+  background-color: #0056b3;
+}
+
+.edit-post-form button:active {
+  background-color: #004494;
+}
+
+
+
+/* Styling for the Create Post Form */
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.create-post-form h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input Fields Styling */
+.create-post-form input[type="title"],
+.create-post-form input[type="summary"],
+.create-post-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.create-post-form input[type="title"]:focus,
+.create-post-form input[type="summary"]:focus
+.create-post-form input[type="content"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.create-post-form input[type="file"] {
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+/* Editor Component Styling */
+.create-post-form .editor {
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Button Styling */
+.create-post-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-post-form button:hover {
+  background-color: #0056b3;
+}
+
+.create-post-form button:active {
+  background-color: #004494;
+}
+
