@@ -47,6 +47,8 @@ exports.createPost = async (req, res) => {
       }
     }
 
+    console.log(req.headers.cookie)
+
     const token = req.headers.cookie.split("=")[1];
     const { title, summary, content } = req.body;
 
