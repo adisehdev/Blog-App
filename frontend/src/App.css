@@ -76,15 +76,37 @@ nav a:hover {
 }
 
 
-.outermost-container {
-  background-color: #b2b2ba; /* Light background color complementing the navbar */
-  padding: 20px; /* Space around the content inside the container */
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+/* .outermost-container {
+  background-color: #b2b2ba; 
+  padding: 20px; 
+  min-height: 100vh; 
 }
 
 .outermost-container .post {
-  margin: 20px auto; /* Space between post cards */
+  margin: 20px auto; 
+} */
+
+
+/* IndexPage.css */
+.outermost-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
+
+@media (min-width: 768px) {
+  .outermost-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .outermost-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
