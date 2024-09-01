@@ -83,7 +83,11 @@ exports.getProfile = async (req, res) => {
 exports.logoutUser = async (req, res) => {
   //api to logout user
   try {
-    res.cookie("token", "").json({ cookies: res.cookies }).status(200); //resetting cookie
+    res.cookie("token", "",{
+      httpOnly: true,
+      secure: true, // set to true if using HTTPS
+      sameSite: "None",
+    }).json({ cookies: res.cookies }).status(200); //resetting cookie
   } catch (error) {
     res.status(400).json({ error: "could not logout user : " + error.message });
   }
