@@ -13,16 +13,12 @@ exports.registerUSer = async (req, res) => {
   //api to register new user
   try {
     let { username, password } = req.body;
-    if (password.length < 6) {
-      res
-        .status(400)
-        .json({ error: "password length must be more than 6 characters" });
-    } else {
-      password = bcrypt.hashSync(password, 10);
-      const newUser = new User({ username, password });
-      const registeredUser = await newUser.save();
-      res.status(201).json(registeredUser);
-    }
+     
+    password = bcrypt.hashSync(password, 10);
+    const newUser = new User({ username, password });
+    const registeredUser = await newUser.save();
+    res.status(201).json(registeredUser);
+    
   } catch (error) {
     res
       .status(400)
