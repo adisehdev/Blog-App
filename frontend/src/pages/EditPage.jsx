@@ -37,6 +37,7 @@ const EditPost = () => {
     if (response.ok) {
       if(!userInfo)setAuthenticated(false)
       else if(result?.author?.username!==userInfo.username)setAuthorized(false)
+      console.log("after editing the post the result is : ",result)
       setPostinfo(result);
       setTitle(result.title);
       setContent(result.content);
