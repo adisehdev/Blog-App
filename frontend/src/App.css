@@ -81,6 +81,7 @@ nav a:hover {
 /* IndexPage.css */
 .outermost-container {
   display: grid;
+  background-color: #aba3a3;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
