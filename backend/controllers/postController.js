@@ -143,7 +143,7 @@ exports.editPost = async (req, res) => {
       if (JSON.stringify(info.id) === JSON.stringify(oldPost.author)) {
         const deletedPost = await Post.findOneAndUpdate(
           { _id: req.params.id },
-          { ...req.body, cover: newPath ? newPath : oldPost.cover },
+          { ...req.body, cover: newPath ? cover : oldPost.cover },
           { new: true }
         );
         res.status(200).json(deletedPost);
