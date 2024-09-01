@@ -95,13 +95,13 @@ nav a:hover {
   padding: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .outermost-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 400px) {
   .outermost-container {
     grid-template-columns: 1fr;
   }
