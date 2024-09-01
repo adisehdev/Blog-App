@@ -181,8 +181,7 @@ exports.deletePost = async (req, res) => {
       if(JSON.stringify(info.id)===JSON.stringify(oldPost?.author)){
         
         const deletedPost = await Post.findOneAndDelete({_id : id},{new : true})
-        const publicId = deletedPost.cover.split(`https://res.cloudinary.com/${process.env_CLOUDINARY_CLOUD_NAME}/image/upload/`)[1].split("/")[1].split(".")[0]
-        await cloudinary.uploader.destroy(publicId)
+        
         res.status(200).json(deletedPost)
       }
       else{
