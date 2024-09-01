@@ -393,6 +393,11 @@ nav a:hover {
   display: inline-block;
 }
 
+.single-post-content{
+  max-width: 80%;
+  border-radius: 10px;
+}
+
 /* Edit and Delete Buttons */
 .edit-post,
 .delete-post {

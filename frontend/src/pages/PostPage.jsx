@@ -125,7 +125,7 @@ const SinglePost = () => {
         <img src={`${postInfo ? postInfo.cover : ""}`}></img>
       </div>
 
-      <div dangerouslySetInnerHTML={postInfo ? { __html: postInfo.content } : null} />
+      <div className="single-post-content" dangerouslySetInnerHTML={postInfo ? { __html: postInfo.content } : null} />
     </div>
   );
 };
