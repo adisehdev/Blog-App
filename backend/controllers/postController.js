@@ -179,8 +179,9 @@ exports.deletePost = async (req, res) => {
       const oldPost = await Post.findOne({ _id: id });
 
       if(JSON.stringify(info.id)===JSON.stringify(oldPost?.author)){
-        await cloudinary.uploader.destroy(oldPost.cover)
+        
         const deletedPost = await Post.findOneAndDelete({_id : id},{new : true})
+        await cloudinary.uploader.destroy(deletedPost.cover)
         res.status(200).json(deletedPost)
       }
       else{
