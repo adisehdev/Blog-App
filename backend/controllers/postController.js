@@ -3,8 +3,7 @@ const fs = require("fs");
 require('dotenv').config()
 const { v2: cloudinary } = require("cloudinary");
 const jwt = require("jsonwebtoken");
-const path = require("path");
-const multer = require("multer");
+const {extractPublicId} = require('cloudinary-build-url')
 const publicKey = process.env.PUBLIC_KEY;
 const Post = model.Post;
 
@@ -181,8 +180,9 @@ exports.deletePost = async (req, res) => {
       if(JSON.stringify(info.id)===JSON.stringify(oldPost?.author)){
         
         const deletedPost = await Post.findOneAndDelete({_id : id},{new : true})
-        
-        res.status(200).json(deletedPost)
+        const publicId = extractPublicId(JSON.stringify(deletedPost.cover))
+        await cloudinary.uploader.destroy(publicId)
+        res.status(200).json({...deletedPost,publicId})
       }
       else{
         res.status(400).json({error : "error in deleting post, login mismatch"})
