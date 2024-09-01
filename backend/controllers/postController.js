@@ -141,12 +141,12 @@ exports.editPost = async (req, res) => {
       const oldPost = await Post.findOne({ _id: req.params.id });
 
       if (JSON.stringify(info.id) === JSON.stringify(oldPost.author)) {
-        const deletedPost = await Post.findOneAndUpdate(
+        const updatedPost = await Post.findOneAndUpdate(
           { _id: req.params.id },
           { ...req.body, cover: newPath ? cover : oldPost.cover },
           { new: true }
         );
-        res.status(200).json(deletedPost);
+        res.status(200).json(updatedPost);
       } else {
         res
           .status(400)
