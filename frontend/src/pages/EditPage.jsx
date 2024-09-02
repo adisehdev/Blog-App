@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../../context/userContext";
 import Editor from "../components/Editor";
+import ClipLoader from "react-spinners/ClipLoader"; // Import the loader
 
 const EditPost = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ const EditPost = () => {
   const [postInfo, setPostinfo] = useState(null);
   const [authorized,setAuthorized] = useState(true)
   const [authenticated,setAuthenticated] = useState(true)
+  const [loading, setLoading] = useState(false); // Loading state
   
   
   const {userInfo,setUserinfo} = useContext(userContext)
@@ -22,7 +24,7 @@ const EditPost = () => {
   const navigate = useNavigate();
 
   const getSinglePost = async () => {
-    
+    setLoading(true)
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`, {
       method: "GET",
     });
@@ -31,7 +33,7 @@ const EditPost = () => {
 
     const result = await response.json();
     
-
+    setLoading(false)
     
 
     if (response.ok) {
@@ -75,6 +77,7 @@ const EditPost = () => {
 
   const editPost = async (e) => {
     e.preventDefault();
+    setLoading(true)
     let data = new FormData();
     data.set("title", title);
     data.set("summary", summary);
@@ -92,6 +95,8 @@ const EditPost = () => {
     });
 
     const result = await response.json();
+
+    setLoading(false)
     
     
 
@@ -107,7 +112,7 @@ const EditPost = () => {
   
   
   
-  
+  if(loading)return <>Loading...</>
   
   
 
