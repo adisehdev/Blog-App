@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../../context/userContext";
 import Editor from "../components/Editor";
-import ClipLoader from "react-spinners/ClipLoader"; // Import the loader
+import Loader from "../components/Loader";
 
 const EditPost = () => {
   const [title, setTitle] = useState("");
@@ -112,7 +112,7 @@ const EditPost = () => {
   
   
   
-  if(loading)return <>Loading...</>
+  if(loading)return <Loader/>
   
   
 
