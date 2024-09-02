@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "../components/Editor";
 import { userContext } from "../../context/userContext";
-import ClipLoader from "react-spinners/ClipLoader"; // Import the loader
+import Loader from "../components/Loader";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -50,6 +50,8 @@ const CreatePost = () => {
     if (!userInfo || !userInfo.hasOwnProperty("username")) navigate("/");
   }, []);
 
+  if(loading)return <Loader/>
+
   return (
     <>
       <form className="create-post-form" onSubmit={createNewPost}>
@@ -67,15 +69,12 @@ const CreatePost = () => {
         />
         <input type="File" onChange={(e) => setFiles(e.target.files)} />
         <Editor onChange={setContent} value={content} />
-        
-        {/* Conditionally render the loader or button */}
-        {loading ? (
-          <ClipLoader color={"#36d7b7"} loading={loading} size={50} />
-        ) : (
-          <button style={{ marginTop: "7px" }} disabled={loading}>
+
+        <button style={{ marginTop: "7px" }} disabled={loading}>
             Create Post
           </button>
-        )}
+        
+        
       </form>
     </>
   );

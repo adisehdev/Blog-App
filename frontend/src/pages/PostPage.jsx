@@ -1,10 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, Link,useNavigate } from "react-router-dom";
 import { userContext } from "../../context/userContext";
+import Loader from "../components/Loader";
 
 const SinglePost = () => {
   const [postInfo, setPostinfo] = useState(null);
   const [postExist,setPostExist] = useState(true)
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate()
   const { id } = useParams();
   
@@ -13,11 +15,13 @@ const SinglePost = () => {
   
 
   const getSinglePost = async () => {
+    setLoading(true)
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`, {
       method: "GET",
     });
 
     const result = await response.json();
+    setLoading(false)
     console.log("postinfo in post page : ",result);
 
     if (response.ok) {
@@ -37,13 +41,14 @@ const SinglePost = () => {
   };
 
   const handleDelete = async ()=>{
-    
+    setLoading(true)
     const response  = await fetch(`${import.meta.env.VITE_API_URL}/api/post/${id}`,{
       method : 'DELETE',
       credentials : 'include'
     })
 
     const result = await response.json();
+    setLoading(false)
 
     if(response.ok){
       console.log("deleted post , printing in postpage : ",result)
@@ -94,7 +99,7 @@ const SinglePost = () => {
 
 
   
-
+  if(loading)return <Loader/>
   
   
   
